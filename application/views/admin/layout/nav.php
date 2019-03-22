@@ -25,6 +25,15 @@
 </ul>
 </li>
 
+<!-- Menu Buku  -->
+<li>
+<a href="#"><i class="fa fa-book "></i> Buku <span class="fa arrow"></span></a>
+<ul class="nav nav-second-level">
+  <li><a href="<?php echo base_url('admin/buku') ?>">Data Buku</a></li>
+  <li><a href="<?php echo base_url('admin/buku/tambah') ?>">Tambah buku</a></li>
+</ul>
+</li>
+
 <!-- Menu User  -->
 <li>
 <a href="#"><i class="fa fa-user "></i> User/Admin<span class="fa arrow"></span></a>

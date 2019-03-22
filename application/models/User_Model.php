@@ -50,7 +50,7 @@ class User_model extends CI_Model {
 		$this->db->where(array('username'		=> $username,
 													 'password'  	=> sha1($password)
 										));
-		$this->db->order_by('id_user','DESC');
+		$this->db->order_by('id_user','ASC');
 		$query = $this->db->get();
 		return $query->row();
 	}

@@ -26,7 +26,6 @@
         <!-- <ul class="events">
           <li>Example 4 callback events</li>
           </ul>-->
-        <div class="clearfix"></div>
       </div>
     </div>
     <!-- //banner -->
@@ -62,77 +61,27 @@
         </div>
       </div>
     </section>
-    <section class="about" id="about">
-      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-        <!--Horizontal Tab-->
-        <div id="horizontalTab">
-          <ul class="resp-tabs-list justify-content-center">
-            <li data-blast="bgColor">Course</li>
-            <li data-blast="bgColor">Academics</li>
-            <li data-blast="bgColor">Admission</li>
-            <li data-blast="bgColor">Mission</li>
-          </ul>
-          <div class="resp-tabs-container">
-            <div class="tab1" >
-              <div class="row mt-lg-4 mt-3">
-                <div class="col-md-7 latest-list">
-                  <div class="about-jewel-agile-left">
-                    <h4 class="mb-3" data-blast="color">Dolor sit </h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque</p>
-                    <h5 data-blast="color"> Who we are</h5>
-                  </div>
-                </div>
-                <div class="col-md-5 about-txt-img">
-                  <img src="<?php echo base_url()?>assets/front/images/ab1.jpg" class="img-thumbnail" alt="">
-                </div>
+    <!--Subscribe-->
+    <section class="py-md-5 py-sm-4 py-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 subscrib-w3layouts text-center">
+                <h2 data-blast="color">Pencarian Buku</h2>
               </div>
-            </div>
-            <div class="tab2">
-              <div class="row mt-lg-4 mt-3">
-                <div class="col-md-5 about-txt-img">
-                  <img src="images/ab3.jpg" class="img-thumbnail" alt="">
-                </div>
-                <div class="col-md-7 latest-list">
-                  <div class="about-jewel-agile-left">
-                    <h4 class="mb-3" data-blast="color"> ipsum dolor</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque</p>
-                    <h5 data-blast="color">What We do</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab3">
-              <div class="row mt-lg-4 mt-3">
-                <div class="col-md-7 latest-list">
-                  <div class="about-jewel-agile-left">
-                    <h4 class="mb-3" data-blast="color">Lorem ipsum</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque</p>
-                    <h5 data-blast="color">What Our Vision</h5>
-                  </div>
-                </div>
-                <div class="col-md-5 about-txt-img">
-                  <img src="images/ab2.jpg" class="img-thumbnail" alt="">
-                </div>
-              </div>
-            </div>
-            <div class="tab4">
-              <div class="row mt-lg-4 mt-3">
-                <div class="col-md-5 about-txt-img">
-                  <img src="images/ab1.jpg" class="img-thumbnail" alt="">
-                </div>
-                <div class="col-md-7 latest-list">
-                  <div class="about-jewel-agile-left">
-                    <h4 class="mb-3" data-blast="color"> ipsum dolor</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nibh urna, euismod ut ornare non, volutpat vel tortor. Integer laoreet placerat suscipit. Sed sodales scelerisque commodo. Nam porta</p>
-                    <h5 data-blast="color">What Our Mission</h5>
-                  </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="newsletter">
+                  <form action="#" method="post" class="d-flex">
+                    <input type="text" name="cari" class="form-control" placeholder="Keyword" required>
+                    <!-- <input type="submit" name="submit" class="btn btn-danger" value="Search" > -->
+                    <button class="btn1">
+                    <span class="fa fa-search"></span>
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
     <!--//about-->
     <!--service-->
     <section class="service py-lg-4 py-md-3 py-sm-3 py-3" id="service">
