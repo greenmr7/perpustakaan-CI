@@ -15,8 +15,21 @@ class File extends CI_Controller
     public function index(){
       $file = $this->file_model->listing();
 
-      $data = array('title' => 'Data File Buku('.count($file).')',
+      $data = array('title' => 'Data File Buku ('.count($file).')',
                   'file'	=> 	$file,
+                  'isi'   => 'admin/file/list'
+                  );
+        $this->load->view('admin/layout/file', $data, false);
+    }
+
+    //kelola file buku
+    public function kelola($id_buku){
+      $file = $this->file_model->buku($id_buku);
+      $buku = $this->buku_model->detail($id_buku);
+
+      $data = array('title' => 'Data File Buku : '.$buku->judul_buku.'('.count($file).')',
+                  'file'	=> 	$file,
+                  'buku'	=> 	$buku,
                   'isi'   => 'admin/file/list'
                   );
         $this->load->view('admin/layout/file', $data, false);
