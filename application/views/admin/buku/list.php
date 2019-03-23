@@ -25,7 +25,11 @@
   <?php $i=1; foreach($buku as $buku) { ?>
       <tr class="odd gradeX">
           <td><?php echo $i ?></td>
-          <td><?php echo $buku->nama ?><br>
+          <td><?php if($buku->cover_buku != ""){ ?>
+                  <img src="<?php echo base_url('assets/upload/buku/thumbs/'.$buku->cover_buku) ?>" class="img img-thumbnail" width="60">
+              <?php }else{ echo 'Tidak ada';} ?>
+
+         </td>
           <td><?php echo $buku->judul_buku ?></td>
           <td><?php echo $buku->penulis_buku ?>
           <td><?php echo $buku->letak_buku?></td>
