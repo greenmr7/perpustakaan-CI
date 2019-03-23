@@ -22,6 +22,7 @@
 <ul class="nav nav-second-level">
   <li><a href="<?php echo base_url('admin/buku') ?>">Data Buku</a></li>
   <li><a href="<?php echo base_url('admin/buku/tambah') ?>">Tambah buku</a></li>
+  <li><a href="<?php echo base_url('admin/file') ?>">Kelola File Buku (E-book)</a></li>
 </ul>
 </li>
 
