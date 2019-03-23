@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21 Mar 2019 pada 12.56
+-- Generation Time: 23 Mar 2019 pada 13.30
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -64,6 +64,13 @@ CREATE TABLE `bahasa` (
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `bahasa`
+--
+
+INSERT INTO `bahasa` (`id_bahasa`, `kode_bahasa`, `nama_bahasa`, `keterangan`, `urutan`, `tanggal`) VALUES
+(1, 'K01', 'Bahasa Kalbu', '  ', 1, '2019-03-22 18:44:01');
+
 -- --------------------------------------------------------
 
 --
@@ -88,25 +95,50 @@ CREATE TABLE `berita` (
 --
 
 CREATE TABLE `buku` (
+  `id_buku` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_jenis` int(11) NOT NULL,
   `id_bahasa` int(11) NOT NULL,
   `judul_buku` varchar(255) NOT NULL,
   `penulis_buku` varchar(255) NOT NULL,
-  `subjek_buku` varchar(255) NOT NULL,
-  `letak_buku` varchar(50) NOT NULL,
-  `kode_buku` varchar(50) NOT NULL,
-  `kolasi` int(11) NOT NULL,
-  `penerbit` varchar(255) NOT NULL,
-  `tahun_terbit` year(4) NOT NULL,
+  `subjek_buku` varchar(255) DEFAULT NULL,
+  `letak_buku` varchar(50) DEFAULT NULL,
+  `kode_buku` varchar(50) DEFAULT NULL,
+  `kolasi` int(11) DEFAULT NULL,
+  `penerbit` varchar(255) DEFAULT NULL,
+  `tahun_terbit` year(4) DEFAULT NULL,
   `no_seri` varchar(50) DEFAULT NULL,
-  `status_buku` enum('Publish','Not Publish','Missing','') NOT NULL,
+  `status_buku` enum('Publish','Not_Publish','Missing','') DEFAULT NULL,
   `ringkasan` mediumtext,
   `cover_buku` varchar(255) DEFAULT NULL,
   `jumlah_buku` int(11) DEFAULT NULL,
   `tanggal_entri` datetime NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `buku`
+--
+
+INSERT INTO `buku` (`id_buku`, `id_user`, `id_jenis`, `id_bahasa`, `judul_buku`, `penulis_buku`, `subjek_buku`, `letak_buku`, `kode_buku`, `kolasi`, `penerbit`, `tahun_terbit`, `no_seri`, `status_buku`, `ringkasan`, `cover_buku`, `jumlah_buku`, `tanggal_entri`, `tanggal`) VALUES
+(5, 4, 3, 1, 'Ilmu Pengetahuan Sosial', 'Nur Wahyu Rochmadi', '', '', '', 0, '', NULL, '', 'Publish', '  ', 'ips.jpg', 0, '2019-03-22 20:14:19', '2019-03-22 19:14:19');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `file`
+--
+
+CREATE TABLE `file` (
+  `id_file` int(11) NOT NULL,
+  `id_buku` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `judul_file` varchar(255) NOT NULL,
+  `nama_file` varchar(255) NOT NULL,
+  `keterangan` text,
+  `urutan` int(11) DEFAULT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -128,7 +160,7 @@ CREATE TABLE `jenis` (
 --
 
 INSERT INTO `jenis` (`id_jenis`, `kode_jenis`, `nama_jenis`, `keterangan`, `urutan`, `tanggal`) VALUES
-(3, '234234', 'sdfsdf', '   sdgfsdfsdfsdf sdfsdfsdf sf sxc sdf saf ', 234234, '2019-03-18 13:53:26'),
+(3, 'I01', 'Ilmu sosial', '', 1, '2019-03-22 18:44:32'),
 (4, 'bio', 'buku biologi', '  buku ini tentang biologi dalam tumbuhan dan hewan\r\njika ada tambahan, kemungkinan tentang kamasutra', 2, '2019-03-19 17:46:05');
 
 -- --------------------------------------------------------
@@ -217,7 +249,13 @@ ALTER TABLE `berita`
 -- Indexes for table `buku`
 --
 ALTER TABLE `buku`
-  ADD PRIMARY KEY (`id_user`);
+  ADD PRIMARY KEY (`id_buku`);
+
+--
+-- Indexes for table `file`
+--
+ALTER TABLE `file`
+  ADD PRIMARY KEY (`id_file`);
 
 --
 -- Indexes for table `jenis`
@@ -259,7 +297,7 @@ ALTER TABLE `anggota`
 -- AUTO_INCREMENT for table `bahasa`
 --
 ALTER TABLE `bahasa`
-  MODIFY `id_bahasa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bahasa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `berita`
 --
@@ -269,7 +307,12 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `file`
+--
+ALTER TABLE `file`
+  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `jenis`
 --
@@ -289,7 +332,7 @@ ALTER TABLE `peminjaman`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
