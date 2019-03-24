@@ -1,6 +1,8 @@
-<p><button class="btn btn-success" data-toggle="modal" data-target="#Add" title="Add File">
+<p>
+  <button class="btn btn-success" data-toggle="modal" data-target="#Add" title="Add File">
   <i class="fa fa-upload"></i>
 </button>
+</p>
 <?php
 
 // cetak error kalau ada salah input
@@ -26,12 +28,12 @@ echo form_open_multipart(base_url('admin/file/kelola/'.$buku->id_buku));
             <div class="modal-body">
 							<div class="form-group">
 								<label>Judul File</label>
-								<input type="text" name="judul_file" class="form-control" placeholder="Judul File" value="<?php echo set_value('judul_file') ?>" required>
+								<input type="text" name="judul_file" class="form-control" placeholder="Judul File" value="<?php echo set_value('judul_file') ?>" required="required">
 							</div>
 
 							<div class="form-group">
 								<label>Upload File</label>
-								<input type="file" name="nama_file" class="form-control" placeholder="Upload File" value="<?php echo set_value('nama_file') ?>" required>
+								<input type="file" name="nama_file" class="form-control" placeholder="Upload File" value="<?php echo set_value('nama_file') ?>" required="required">
 							</div>
 
 							<div class="form-group">

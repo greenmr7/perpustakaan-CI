@@ -12,7 +12,7 @@
         			<p class="alert alert-warning">Are you sure want to delete this data?</p>
             </div>
             <div class="modal-footer">
-              <a href="<?php echo base_url('admin/file/delete/'.$file->id_file) ?>" class="btn btn-danger"><i class="fa fa-trash-o"></i> Yes. Delete this Data</a>
+              <a href="<?php echo base_url('admin/file/delete/'.$file->id_file.'/'.$file->id_buku) ?>" class="btn btn-danger"><i class="fa fa-trash-o"></i> Yes. Delete this Data</a>
               <a href="<?php echo base_url('admin/file/edit/'.$file->id_file) ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Edit this Data</a>
               <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-times"></i>Close</button>
             </div>

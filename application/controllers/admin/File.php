@@ -26,9 +26,9 @@ class File extends CI_Controller
       $file = $this->file_model->detail($id_file);
 
       //proses download
-      $folder = './assets/upload/files/';
+      $path = './assets/upload/files/';
       $file = $file->nama_file;
-      force_download($folder.$file, NUll);
+      force_download($path.$file, NUll);
     }
 
 
@@ -62,7 +62,7 @@ class File extends CI_Controller
       											'judul_file'		=>	$i->post('judul_file'),
                             'nama_file'	    =>  $upload_data['uploads']['file_name'],
                             'keterangan'	  =>  $i->post('keterangan'),
-                            'urutan'   	    =>  $i->post('jumlah_file')
+                            'urutan'   	    =>  $i->post('urutan')
                          );
       			$this->file_model->tambah($data);
       			$this->session->set_flashdata('success',' File created successfully');
@@ -103,6 +103,11 @@ class File extends CI_Controller
       // masuk database
       }else{
          $upload_data        		    = array('uploads' =>$this->upload->data());
+
+         // Hapus file lama
+         unlink('./assets/upload/files/'.$file->nama_file);
+         // end hapus
+
           $i = $this->input;
           $data = array( 	'id_file'				=> 	$id_file,
                           'id_user'				=> 	$this->session->userdata('id_user'),
@@ -110,7 +115,7 @@ class File extends CI_Controller
                           'judul_file'		=>	$i->post('judul_file'),
                           'nama_file'	    =>  $upload_data['uploads']['file_name'],
                           'keterangan'	  =>  $i->post('keterangan'),
-                          'urutan'   	    =>  $i->post('jumlah_file')
+                          'urutan'   	    =>  $i->post('urutan')
                        );
           $this->file_model->edit($data);
           $this->session->set_flashdata('success',' File created successfully');
@@ -122,7 +127,7 @@ class File extends CI_Controller
                          'id_buku'				=>	$id_buku,
                          'judul_file'		  =>	$i->post('judul_file'),
                          'keterangan'	    =>  $i->post('keterangan'),
-                         'urutan'   	    =>  $i->post('jumlah_file')
+                         'urutan'   	    =>  $i->post('urutan')
                       );
          $this->file_model->edit($data);
          $this->session->set_flashdata('success',' File created successfully');
@@ -137,23 +142,24 @@ class File extends CI_Controller
     }
 
   // Delete File
-	public function delete($id_file) {
+	public function delete($id_file,$id_buku) {
     //proteksi halaman
-    if($this->session->userdata('filename') == "" && $this->session->userdata('akses_level') == "" ){
+    if($this->session->userdata('username') == "" && $this->session->userdata('akses_level') == "" ){
       $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
       redirect(base_url('login'),'refresh');
     }
 
     $file = $this->file_model->detail($id_file);
 
-    if($file->cover_file != ""){
-      unlink('./assets/upload/file/'.$file->cover_file);
-      unlink('./assets/upload/file/thumbs'.$file->cover_file);
+    if($file->nama_file != ""){
+      // Hapus file lama
+      unlink('./assets/upload/files/'.$file->nama_file);
+      // end hapus
     }
 
 		$data = array('id_file'=> $id_file);
 		$this->file_model->delete($data);
 		$this->session->set_flashdata('Success','File Deleted successfully');
-		redirect (base_url('admin/file'),'refresh');
+		redirect (base_url('admin/file/kelola/'.$id_buku),'refresh');
 	}
 }
