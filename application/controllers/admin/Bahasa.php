@@ -79,7 +79,7 @@ class Bahasa extends CI_Controller
   // Delete Bahasa
 	public function delete($id_bahasa) {
     //proteksi halaman
-    if($this->session->userdata('kode_bahasa') == "" && $this->session->userdata('akses_level') == "" ){
+    if($this->session->userdata('username') == "" && $this->session->userdata('akses_level') == "" ){
       $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
       redirect(base_url('login'),'refresh');
     }

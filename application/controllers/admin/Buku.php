@@ -229,7 +229,7 @@ class Buku extends CI_Controller
   // Delete Buku
 	public function delete($id_buku) {
     //proteksi halaman
-    if($this->session->userdata('bukuname') == "" && $this->session->userdata('akses_level') == "" ){
+    if($this->session->userdata('username') == "" && $this->session->userdata('akses_level') == "" ){
       $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
       redirect(base_url('login'),'refresh');
     }

@@ -79,7 +79,7 @@ class Jenis extends CI_Controller
   // Delete Jenis
 	public function delete($id_jenis) {
     //proteksi halaman
-    if($this->session->userdata('kode_jenis') == "" && $this->session->userdata('akses_level') == "" ){
+    if($this->session->userdata('username') == "" && $this->session->userdata('akses_level') == "" ){
       $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
       redirect(base_url('login'),'refresh');
     }
