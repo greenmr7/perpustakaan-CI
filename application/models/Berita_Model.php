@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Jenis_model extends CI_Model {
+class Berita_model extends CI_Model {
 
 	// Load database
 	public function __construct() {
@@ -12,36 +12,36 @@ class Jenis_model extends CI_Model {
   //Listing
   public function listing() {
     $this->db->select('*');
-    $this->db->from('jenis');
-    $this->db->order_by('urutan','ASC');
+    $this->db->from('berita');
+    $this->db->order_by('id_berita','ASC');
     $query = $this->db->get();
     return $query->result();
   }
 
-	public function detail($id_jenis) {
+	public function detail($id_berita) {
 	    $this->db->select('*');
-	    $this->db->from('jenis');
-	    $this->db->where('id_jenis',$id_jenis);
-	    $this->db->order_by('id_jenis','ASC');
+	    $this->db->from('berita');
+	    $this->db->where('id_berita',$id_berita);
+	    $this->db->order_by('id_berita','ASC');
 	    $query = $this->db->get();
 	    return $query->row();
 	  }
 
 	// Tambah
 	public function tambah ($data) {
-		$this->db->insert('jenis',$data);
+		$this->db->insert('berita',$data);
 	}
 
   // Edit
   public function edit ($data) {
-    $this->db->where('id_jenis',$data['id_jenis']);
-    $this->db->update('jenis',$data);
+    $this->db->where('id_berita',$data['id_berita']);
+    $this->db->update('berita',$data);
   }
 
   // Delete
 	public function delete ($data){
-		$this->db->where('id_jenis',$data['id_jenis']);
-		$this->db->delete('jenis',$data);
+		$this->db->where('id_berita',$data['id_berita']);
+		$this->db->delete('berita',$data);
 	}
 
 }

@@ -18,7 +18,7 @@ class Berita extends CI_Controller
                   'berita'	=> 	$berita,
                   'isi'   => 'admin/berita/list'
                   );
-        $this->load->view('admin/layout/berita', $data, false);
+        $this->load->view('admin/layout/file', $data, false);
     }
     //kelola berita buku
     public function tambah(){
@@ -35,9 +35,9 @@ class Berita extends CI_Controller
          // End validasi
           $data = array('title' => 'Tambar Berita',
                         'error'  => $this->upload->display_errors(),
-                        'isi'   => 'admin/berita/list'
+                        'isi'   => 'admin/berita/tambah'
                         );
-          $this->load->view('admin/layout/berita', $data, false);
+          $this->load->view('admin/layout/file', $data, false);
         // masuk database
         }else{
            $upload_data        		    = array('uploads' =>$this->upload->data());
@@ -61,18 +61,18 @@ class Berita extends CI_Controller
                             'slug_berita'		=>	$slug_berita,
                             'judul_berita'	=>	$i->post('judul_berita'),
       											'isi'		        =>	$i->post('isi'),
-                            'gambar'	      =>  $upload_data['uploads']['berita_name'],
+                            'gambar'	      =>  $upload_data['uploads']['file_name'],
                             'status_berita'	=>  $i->post('status_berita'),
                             'jenis_berita'  =>  $i->post('jenis_berita')
                          );
       			$this->berita_model->tambah($data);
       			$this->session->set_flashdata('success',' Berita created successfully');
-      			redirect(base_url('admin/berit/'),'refresh');
+      			redirect(base_url('admin/berita/'),'refresh');
     		 }}
          $data = array('title' => 'Tambah Berita',
-                      'isi'   => 'admin/berita/list'
+                      'isi'   => 'admin/berita/tambah'
                      );
-        $this->load->view('admin/layout/berita', $data, false);
+        $this->load->view('admin/layout/file', $data, false);
     }
 
   // Edit Berita
@@ -98,7 +98,7 @@ class Berita extends CI_Controller
                       'error'  => $this->upload->display_errors(),
                       'isi'   => 'admin/berita/edit'
                       );
-        $this->load->view('admin/layout/berita', $data, false);
+        $this->load->view('admin/layout/file', $data, false);
       // masuk database
       }else{
          $upload_data        		    = array('uploads' =>$this->upload->data());
@@ -125,40 +125,42 @@ class Berita extends CI_Controller
          }// end hapus
           $i = $this->input;
           $slug_berita = url_title($this->input->post('judul_berita'),'dash',TRUE);
-          $data = array( 	'id_user'				=> 	$this->session->userdata('id_user'),
+          $data = array( 	'id_berita'     => $id_berita,
+                          'id_user'				=> 	$this->session->userdata('id_user'),
                           'slug_berita'		=>	$slug_berita,
                           'judul_berita'	=>	$i->post('judul_berita'),
                           'isi'		        =>	$i->post('isi'),
-                          'gambar'	      =>  $upload_data['uploads']['berita_name'],
+                          'gambar'	      =>  $upload_data['uploads']['file_name'],
                           'status_berita'	=>  $i->post('status_berita'),
                           'jenis_berita'  =>  $i->post('jenis_berita')
                        );
-          $this->berita_model->tambah($data);
-          $this->session->set_flashdata('success',' Berita created successfully');
-          redirect(base_url('admin/berit/'),'refresh');
+          $this->berita_model->edit($data);
+          $this->session->set_flashdata('success',' News Edited successfully');
+          redirect(base_url('admin/berita/'),'refresh');
        }}else {
          $i = $this->input;
          $slug_berita = url_title($this->input->post('judul_berita'),'dash',TRUE);
-         $data = array( 	'id_user'				=> 	$this->session->userdata('id_user'),
+         $data = array(  'id_berita'      => $id_berita,
+                         'id_user'				=> 	$this->session->userdata('id_user'),
                          'slug_berita'		=>	$slug_berita,
-                         'judul_berita'	=>	$i->post('judul_berita'),
+                         'judul_berita' 	=>	$i->post('judul_berita'),
                          'isi'		        =>	$i->post('isi'),
                          'status_berita'	=>  $i->post('status_berita'),
-                         'jenis_berita'  =>  $i->post('jenis_berita')
+                         'jenis_berita'   =>  $i->post('jenis_berita')
                       );
-         $this->berita_model->tambah($data);
-         $this->session->set_flashdata('success',' Berita created successfully');
-         redirect(base_url('admin/berit/'),'refresh');
+         $this->berita_model->edit($data);
+         $this->session->set_flashdata('success',' News Edited successfully');
+         redirect(base_url('admin/berita/'),'refresh');
        }}
-       $data = array('title' => 'Edit Berita : '.$buku->judul_buku,
+       $data = array('title' => 'Edit Berita : '.$berita->judul_berita,
                     'berita'	=> $berita,
                     'isi'   => 'admin/berita/edit'
                    );
-      $this->load->view('admin/layout/berita', $data, false);
+      $this->load->view('admin/layout/file', $data, false);
     }
 
   // Delete Berita
-	public function delete($id_berita,$id_buku) {
+	public function delete($id_berita) {
     //proteksi halaman
     if($this->session->userdata('username') == "" && $this->session->userdata('akses_level') == "" ){
       $this->session->set_flashdata('Success','Silahkan login terlebih dahulu');
@@ -177,6 +179,6 @@ class Berita extends CI_Controller
 		$data = array('id_berita'=> $id_berita);
 		$this->berita_model->delete($data);
 		$this->session->set_flashdata('Success','Berita Deleted successfully');
-		redirect (base_url('admin/berita/kelola/'.$id_buku),'refresh');
+		redirect (base_url('admin/berita/'),'refresh');
 	}
 }

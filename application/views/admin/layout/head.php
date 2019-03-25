@@ -16,6 +16,26 @@
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
      <!-- TABLE STYLES-->
     <link href="<?php echo base_url() ?>assets/admin/assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+
+    <!-- Tinymce -->
+    <script src="<?php echo base_url() ?>assets/tinymce/tinymce.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      tinymce.init({
+        selector: '.editor',
+        plugins: [
+          'advlist autolink lists link image charmap print preview anchor textcolor',
+          'searchreplace visualblocks code fullscreen',
+          'insertdatetime media table paste code help wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+        content_css: [
+          '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+          '//www.tiny.cloud/css/codepen.min.css'
+        ]
+      });
+    </script>
+
 </head>
 <body>
     <div id="wrapper">

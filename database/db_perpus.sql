@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23 Mar 2019 pada 13.30
+-- Generation Time: 25 Mar 2019 pada 13.59
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -84,9 +84,17 @@ CREATE TABLE `berita` (
   `judul_berita` varchar(255) CHARACTER SET utf8 NOT NULL,
   `isi` text CHARACTER SET utf8 NOT NULL,
   `gambar` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `status_berita` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `status_berita` enum('Publish','Draft','','') CHARACTER SET utf8 NOT NULL,
+  `jenis_berita` enum('Berita','Slider','','') NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `berita`
+--
+
+INSERT INTO `berita` (`id_berita`, `id_user`, `slug_berita`, `judul_berita`, `isi`, `gambar`, `status_berita`, `jenis_berita`, `tanggal`) VALUES
+(1, 4, 'iwak-e-nyebur-sumur-tandas', 'iwak e nyebur sumur tandas', '        asdasdasd      asd', 'kandang-ternak-kenari-siste5.jpg', 'Draft', 'Slider', '2019-03-25 12:41:46');
 
 -- --------------------------------------------------------
 
@@ -121,7 +129,8 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `id_user`, `id_jenis`, `id_bahasa`, `judul_buku`, `penulis_buku`, `subjek_buku`, `letak_buku`, `kode_buku`, `kolasi`, `penerbit`, `tahun_terbit`, `no_seri`, `status_buku`, `ringkasan`, `cover_buku`, `jumlah_buku`, `tanggal_entri`, `tanggal`) VALUES
-(5, 4, 3, 1, 'Ilmu Pengetahuan Sosial', 'Nur Wahyu Rochmadi', '', '', '', 0, '', NULL, '', 'Publish', '  ', 'ips.jpg', 0, '2019-03-22 20:14:19', '2019-03-22 19:14:19');
+(5, 4, 3, 1, 'Ilmu Pengetahuan Sosial', 'Nur Wahyu Rochmadi', '', '', '', 0, '', NULL, '', 'Publish', '  ', 'ips.jpg', 0, '2019-03-22 20:14:19', '2019-03-22 19:14:19'),
+(6, 4, 3, 1, 'Dasar Kewirausahaan', 'Ir. Hendro', '', '', '', 0, '', 0000, '', 'Publish', '  ', '20170212035154.jpg', 0, '2019-03-23 14:33:09', '2019-03-23 13:33:09');
 
 -- --------------------------------------------------------
 
@@ -139,6 +148,13 @@ CREATE TABLE `file` (
   `urutan` int(11) DEFAULT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `file`
+--
+
+INSERT INTO `file` (`id_file`, `id_buku`, `id_user`, `judul_file`, `nama_file`, `keterangan`, `urutan`, `tanggal`) VALUES
+(34, 5, 4, 'bab 3', 'agilinilucu.docx', 'qweasd', 2, '2019-03-24 17:44:30');
 
 -- --------------------------------------------------------
 
@@ -302,17 +318,17 @@ ALTER TABLE `bahasa`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `file`
 --
 ALTER TABLE `file`
-  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_file` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `jenis`
 --
@@ -332,7 +348,7 @@ ALTER TABLE `peminjaman`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
