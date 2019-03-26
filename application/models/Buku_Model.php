@@ -29,6 +29,28 @@ class Buku_model extends CI_Model {
     return $query->result();
   }
 
+	//Buku
+  public function buku() {
+    $this->db->select('buku.*,
+                      jenis.nama_jenis,
+                      jenis.kode_jenis,
+                      bahasa.nama_bahasa,
+                      bahasa.kode_bahasa,
+                      user.nama
+                      ');
+    $this->db->from('buku');
+    //JDin 4 table
+    $this->db->join('jenis','jenis.id_jenis = buku.id_jenis','LEFT');
+    $this->db->join('bahasa','bahasa.id_bahasa = buku.id_bahasa','LEFT');
+    $this->db->join('user','user.id_user = buku.id_user','LEFT');
+    //end join
+		$this->db->where(array(	'buku.status_buku' => 'Publish'));
+    $this->db->order_by('id_buku','ASC');
+		// $this->db->limit(4);
+    $query = $this->db->get();
+    return $query->result();
+  }
+
 	// Tambah
 	public function tambah ($data) {
 		$this->db->insert('buku',$data);

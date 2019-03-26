@@ -26,5 +26,6 @@
           </div>
         </nav>
         <!--//navigation section -->
-        <div class="clearfix"> </div>
+        <!-- <div class="clearfix"> </div> -->
       </div>
+    </div>

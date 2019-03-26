@@ -171,30 +171,7 @@
       </div>
     </footer>
     <!--//footer-->
-    <!--model-->
-    <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="exampleModalLiveLabel" data-blast="color">ClassWork</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <img src="<?php echo base_url() ?>assets/front/images/b2.jpg" alt="" class="img-fluid">
-            <p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae,
-              eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellu
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--//model-->
+    
     <!--js working-->
     <script src='<?php echo base_url()?>assets/front/js/jquery-2.2.3.min.js'></script>
     <!--//js working-->

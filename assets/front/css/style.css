@@ -122,7 +122,7 @@ ul {
 .header-w3layouts {
     position: absolute;
     z-index: 99;
-	width:100%;
+	  width:100%;
 }
 .headder-contact {
     padding: 1em 0em;
@@ -699,6 +699,7 @@ transition: 0.90s;
 }
 .clients-color,.team-shadow {
 box-shadow: 2px 0px 20px 0px #757575;
+margin-bottom: 50px;
 }
 /*-- //blog--*/
 /*-- count--*/
@@ -1171,7 +1172,8 @@ nav.navbar.navbar-expand-lg.navbar-light {
     padding: .7em 0em;
 }
 nav.navbar.navbar-expand-lg.navbar-light {
-    top: 59px;
+    /* top: 59px; */
+    top: 0px;
 }
 h1 a.navbar-brand {
     font-size: 32px;
@@ -1490,7 +1492,8 @@ text-align: center;
     text-align: center;
 }
 nav.navbar.navbar-expand-lg.navbar-light {
-    top: 108px;
+    /* top: 108px; */
+    top: 0px;
 	padding: 1em 1em;
 }
 .slider-info {

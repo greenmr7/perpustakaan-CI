@@ -18,6 +18,32 @@ class Berita_model extends CI_Model {
     return $query->result();
   }
 
+	//Slider
+  public function slide() {
+    $this->db->select('*');
+    $this->db->from('berita');
+		$this->db->where(array(	'jenis_berita'  => 'Slide',
+														'status_berita' => 'Publish'
+													));
+    $this->db->order_by('id_berita','ASC');
+		$this->db->limit(5);
+    $query = $this->db->get();
+    return $query->result();
+  }
+
+	//Slider
+  public function berita() {
+    $this->db->select('*');
+    $this->db->from('berita');
+		$this->db->where(array(	'jenis_berita'  => 'Berita',
+														'status_berita' => 'Publish'
+													));
+    $this->db->order_by('id_berita','DESC');
+		$this->db->limit(6);
+    $query = $this->db->get();
+    return $query->result();
+  }
+
 	public function detail($id_berita) {
 	    $this->db->select('*');
 	    $this->db->from('berita');

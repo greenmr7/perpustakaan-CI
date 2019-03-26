@@ -41,7 +41,7 @@ echo form_open_multipart(base_url('admin/berita/edit/'.$berita->id_berita));
 		<label>Jenis Berita</label>
 		<select name="jenis_berita" class="form-control" >
 			<option value="Berita">Berita</option>
-			<option value="Slider" <?php if($berita->jenis_berita =="Slider"){ echo "selected";} ?>>Homepage</option>
+			<option value="Slide" <?php if($berita->jenis_berita =="Slide"){ echo "selected";} ?>>Homepage</option>
 		</select>
 	</div>
 </div>

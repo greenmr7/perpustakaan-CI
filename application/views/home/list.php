@@ -3,32 +3,57 @@
       <div class="slider">
         <div class="callbacks_container">
           <ul class="rslides" id="slider4">
-            <!-- <?php $i=1; foreach($slide as $slide) { ?> -->
+            <?php $i=1; foreach($slide as $slide) { ?>
             <li>
-              <div style="background-image: url(<?php echo base_url('assets/images/galeri/'.$slide->gambar)?>)no-repeat center;" class="slider-img <?php if($i==1){ echo 'active'; } ?>">
+              <div style="background-image: url(<?php echo base_url('assets/upload/berita/'.$slide->gambar)?>);"class="slider-img <?php if($i==1){ echo 'active'; } ?>">
                 <div class="container">
                   <div class="slider-info text-left">
-                    <h4 >Hard Work</h4>
-                    <h5>Lorem ipsum dolor</h5>
-                    <p>velit sagittis vehicula
+                    <h5><?php echo $slide->judul_berita ?></h5>
+                    <p><?php echo character_limiter($slide->isi,50) ?>
                     </p>
                     <div class="outs_more-buttn" >
-                      <a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>
+                      <a href="<?php echo base_url('berita/read/'.$slide->slug_berita) ?>" data-blast="bgColor">More</a>
                     </div>
                   </div>
                 </div>
               </div>
             </li>
-            <!-- <?php $i++; } ?> -->
+            <?php $i++; } ?>
           </ul>
         </div>
+
         <!-- This is here just to demonstrate the callbacks -->
         <!-- <ul class="events">
           <li>Example 4 callback events</li>
           </ul>-->
+          <div class="clearfix"></div>
       </div>
-    </div>
+    <!-- </div> -->
     <!-- //banner -->
+
+    <!--model-->
+    <!-- <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="exampleModalLiveLabel" data-blast="color"><?php echo $slide->judul_berita ?></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img src="<?php echo base_url('assets/front/images/'.$slide->gambar) ?>" alt="" class="img-fluid">
+            <p><?php echo $slide->isi ?></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!--//model-->
+
     <!--about-->
     <section class="pt-md-5 pt-sm-4 pt-3">
       <div class="container-fluid ">
@@ -61,27 +86,27 @@
         </div>
       </div>
     </section>
-    <!--Subscribe-->
+    <!--Keyword-->
     <section class="py-md-5 py-sm-4 py-3">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6 col-md-6 subscrib-w3layouts text-center">
-                <h2 data-blast="color">Pencarian Buku</h2>
-              </div>
-              <div class="col-lg-6 col-md-6">
-                <div class="newsletter">
-                  <form action="#" method="post" class="d-flex">
-                    <input type="text" name="cari" class="form-control" placeholder="Keyword" required>
-                    <!-- <input type="submit" name="submit" class="btn btn-danger" value="Search" > -->
-                    <button class="btn1">
-                    <span class="fa fa-search"></span>
-                    </button>
-                  </form>
-                </div>
-              </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 subscrib-w3layouts text-center">
+            <h2 data-blast="color">Pencarian Buku</h2>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="newsletter">
+              <form action="#" method="post" class="d-flex">
+                <input type="text" name="cari" class="form-control" placeholder="Keyword" required >
+                <!-- <input type="submit" name="submit" class="btn btn-danger" value="Search" > -->
+                <button class="btn1" >
+                <span class="fa fa-search" data-blast="bgcolor"></span>
+                </button>
+              </form>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
     <!--//about-->
     <!--service-->
     <section class="service py-lg-4 py-md-3 py-sm-3 py-3" id="service">
@@ -158,123 +183,39 @@
       </div>
     </section>
     <!--//service-->
-    <!--blog -->
-    <section class="blog py-lg-4 py-md-3 py-sm-3 py-3" id="blog">
-      <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
-        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Our Blog </h3>
+
+    <!--Book-->
+    <section class="team py-lg-4 py-md-3 py-sm-3 py-3" id="team">
+      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Book</h3>
         <div class="row">
-          <div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex">
-            <div class="clients-color">
-              <img src="images/ab3.jpg" class="img-fluid" alt="">
-              <div class="blog-txt-info">
-                <h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>
-                <div class="news-date my-3">
+          <?php $i; foreach ($buku as $buku) {?>
+          <div class="col-lg-3 col-md-6 col-sm-6 profile">
+            <div class="team-shadow">
+              <div class="img-box">
+                <img src="<?php echo base_url('assets/upload/buku/'.$buku->cover_buku) ?>" alt="<?php echo $buku->judul_buku ?>">
+                <!-- <div class="list-social-icons">
                   <ul>
-                    <li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">12/4/2019</a></li>
-                    <li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>
+                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
+                    <li><a href="#"><span class="fas fa-envelope"></span></a></li>
+                    <li><a href="#"><span class="fas fa-rss"></span></a></li>
+                    <li><a href="#"><span class="fab fa-vk"></span></a></li>
                   </ul>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-                <div class="outs_more-buttn" >
-                  <a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>
-                </div>
+                </div> -->
+              </div>
+              <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
+                <h4 class="text-white mb-2"> <a href="<?php echo base_url('buku/read/'.$buku->id_buku) ?>"><?php echo $buku->judul_buku ?></a> </h4>
+                <span class="wls-client-title text-black"><?php echo $buku->penulis_buku ?></span>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-6  blog-grid-flex">
-            <div class="clients-color">
-              <img src="images/ab1.jpg" class="img-fluid" alt="">
-              <div class="blog-txt-info">
-                <h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>
-                <div class="news-date my-3">
-                  <ul>
-                    <li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">12/4/2019</a></li>
-                    <li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>
-                  </ul>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-                <div class="outs_more-buttn" >
-                  <a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex">
-            <div class="clients-color">
-              <img src="images/ab2.jpg" class="img-fluid" alt="">
-              <div class="blog-txt-info">
-                <h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>
-                <div class="news-date my-3">
-                  <ul>
-                    <li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">12/4/2019</a></li>
-                    <li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>
-                  </ul>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-                <div class="outs_more-buttn" >
-                  <a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex mt-lg-5 mt-md-4 mt-sm-3 mt-3">
-            <div class="clients-color">
-              <img src="images/ab3.jpg" class="img-fluid" alt="">
-              <div class="blog-txt-info">
-                <h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>
-                <div class="news-date my-3">
-                  <ul>
-                    <li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive" >12/4/2019</a></li>
-                    <li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive" >5 Comments</a></li>
-                  </ul>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-                <div class="outs_more-buttn" >
-                  <a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex mt-lg-5 mt-md-4 mt-sm-3 mt-3" >
-            <div class="clients-color">
-              <img src="images/ab1.jpg" class="img-fluid" alt="">
-              <div class="blog-txt-info">
-                <h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>
-                <div class="news-date my-3">
-                  <ul>
-                    <li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">12/4/2019</a></li>
-                    <li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>
-                  </ul>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-                <div class="outs_more-buttn" >
-                  <a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex mt-lg-5 mt-md-4 mt-sm-3 mt-3">
-            <div class="clients-color">
-              <img src="images/ab2.jpg" class="img-fluid" alt="">
-              <div class="blog-txt-info">
-                <h4 class="mt-2"><a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="color">Quisque a rhoncus </a></h4>
-                <div class="news-date my-3">
-                  <ul>
-                    <li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">12/4/2019</a></li>
-                    <li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>
-                  </ul>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et</p>
-                <div class="outs_more-buttn" >
-                  <a href="#" data-toggle="modal" data-target="#exampleModalLive" data-blast="bgColor">More</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- <div class="clearfix"></div> -->
+        <?php } ?>
         </div>
       </div>
     </section>
-    <!--//blog -->
+    <!--//Buku-->
+
     <!--stats-->
     <section class="stats py-lg-4 py-md-3 py-sm-3 py-3" id="stats">
       <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
@@ -318,95 +259,37 @@
       </div>
     </section>
     <!--//stats-->
-    <!--Team-->
-    <section class="team py-lg-4 py-md-3 py-sm-3 py-3" id="team">
-      <div class="container py-lg-5 py-md-5 py-sm-4 py-3">
-        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Our Staff </h3>
-        <div class="row ">
-          <div class="col-lg-3 col-md-6 col-sm-6 profile">
-            <div class="team-shadow">
-              <div class="img-box">
-                <img src="images/t1.jpg" alt="">
-                <div class="list-social-icons">
+
+    <!--News -->
+    <section class="blog py-lg-4 py-md-3 py-sm-3 py-3" id="blog">
+      <div class="container py-lg-5 py-md-4 py-sm-4 py-3">
+        <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">News</h3>
+        <div class="row">
+          <?php $i=1; foreach ($berita as $berita) {?>
+          <div class="col-lg-4 col-md-6 col-sm-6 blog-grid-flex">
+            <div class="clients-color">
+              <img src="<?php echo base_url('assets/upload/berita/'.$berita->gambar) ?>" class="img-fluid" alt="">
+              <div class="blog-txt-info">
+                <h4 class="mt-2"><a href="<?php echo base_url('berita/read/'.$berita->slug_berita) ?>" data-blast="color"><?php echo $berita->judul_berita ?> </a></h4>
+                <div class="news-date my-3">
                   <ul>
-                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                    <li><a href="#"><span class="fas fa-envelope"></span></a></li>
-                    <li><a href="#"><span class="fas fa-rss"></span></a></li>
-                    <li><a href="#"><span class="fab fa-vk"></span></a></li>
+                    <li class="mr-3"><span class="far fa-calendar-check"></span><a href="#" ><?php echo $berita->tanggal ?></a></li>
+                    <li><span class="far fa-comments"></span><a href="#" data-toggle="modal" data-target="#exampleModalLive">5 Comments</a></li>
                   </ul>
                 </div>
-              </div>
-              <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
-                <h4 class="text-white mb-2">Rox Will</h4>
-                <span class="wls-client-title text-black">Professor</span>
+                <p><?php echo $berita->isi ?></p>
+                <div class="outs_more-buttn" >
+                  <a href="<?php echo base_url('berita/read/'.$berita->slug_berita) ?>"  data-blast="bgColor">More</a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-6 profile">
-            <div class="team-shadow">
-              <div class="img-box">
-                <img src="images/t2.jpg" alt="">
-                <div class="list-social-icons">
-                  <ul>
-                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                    <li><a href="#"><span class="fas fa-envelope"></span></a></li>
-                    <li><a href="#"><span class="fas fa-rss"></span></a></li>
-                    <li><a href="#"><span class="fab fa-vk"></span></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
-                <h4 class="text-white mb-2">Sam Doi</h4>
-                <span class="wls-client-title text-black">Professor</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6 profile">
-            <div class="team-shadow">
-              <div class="img-box">
-                <div class="team-list-img">
-                  <img src="images/t3.jpg" alt="">
-                </div>
-                <div class="list-social-icons">
-                  <ul>
-                    <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
-                    <li><a href="#"><span class="fas fa-envelope"></span></a></li>
-                    <li><a href="#"><span class="fas fa-rss"></span></a></li>
-                    <li><a href="#"><span class="fab fa-vk"></span></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
-                <h4 class="text-white mb-2">Kent Kelly</h4>
-                <span class="wls-client-title text-black">Professor</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6 profile">
-            <div class="team-shadow">
-              <div class="img-box">
-                <div class="team-list-img">
-                  <img src="images/t4.jpg" alt="">
-                </div>
-                <div class="list-social-icons">
-                  <ul>
-                    <li><a href="#"><span class="fab fa-facebook-f" ></span></a></li>
-                    <li><a href="#"><span class="fas fa-envelope"></span></a></li>
-                    <li><a href="#"><span class="fas fa-rss"></span></a></li>
-                    <li><a href="#"><span class="fab fa-vk"></span></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
-                <h4 class="text-white mb-2">Kent Kelly</h4>
-                <span class="wls-client-title text-black">Professor</span>
-              </div>
-            </div>
-          </div>
+        <?php } ?>
         </div>
       </div>
     </section>
-    <!--//Team-->
+    <!--//News -->
+
     <!--contact -->
     <section class="contact py-lg-4 py-md-3 py-sm-3 py-3" id="contact">
       <div class="container py-lg-5 py-md-5 py-sm-4 py-3">

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Berita extends CI_Controller {
 
   public function __construct(){
 		parent::__construct();
@@ -15,19 +15,19 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		// $site = $this->home_model->listing();
-		$buku	= $this->buku_model->buku();
+		// $site = $this->berita_model->listing();
+		// $buku	= $this->buku_model->buku();
 		// $new	= $this->produk_model->new();
 		$berita = $this->berita_model->berita();
 		$slide = $this->berita_model->slide();
 
-    $data = array('title'  			=> 'Sistem Informasi Katalog Buku Online',//$site['namaweb'].' | '.$site['tagline']
+    $data = array('title'  			=> 'Berita Terbaru',//$site['namaweb'].' | '.$site['tagline']
 									// 'produk'			=> $produk,
 									// 'new'					=> $new,
-                  'buku'  		  => $buku,
+                  // 'buku'  		  => $buku,
 									'berita'  		=> $berita,
-									'slide'  			=> $slide,
-                  'isi'    			=> 'home/list');
+									// 'slide'  			=> $slide,
+                  'isi'    			=> 'berita/list');
 
     $this->load->view('layout/file',$data,FALSE);
 	}

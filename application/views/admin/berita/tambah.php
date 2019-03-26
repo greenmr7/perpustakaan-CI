@@ -41,7 +41,7 @@ echo form_open_multipart(base_url('admin/berita/tambah'));
 		<label>Jenis Berita</label>
 		<select name="jenis_berita" class="form-control" >
 			<option value="Berita">Berita</option>
-			<option value="Slider">Homepage</option>
+			<option value="Slide">Homepage</option>
 		</select>
 	</div>
 </div>
