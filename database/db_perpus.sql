@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 25 Mar 2019 pada 13.59
+-- Generation Time: 27 Mar 2019 pada 10.48
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -85,7 +85,7 @@ CREATE TABLE `berita` (
   `isi` text CHARACTER SET utf8 NOT NULL,
   `gambar` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `status_berita` enum('Publish','Draft','','') CHARACTER SET utf8 NOT NULL,
-  `jenis_berita` enum('Berita','Slider','','') NOT NULL,
+  `jenis_berita` enum('Berita','Slide','','') NOT NULL,
   `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -94,7 +94,11 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `id_user`, `slug_berita`, `judul_berita`, `isi`, `gambar`, `status_berita`, `jenis_berita`, `tanggal`) VALUES
-(1, 4, 'iwak-e-nyebur-sumur-tandas', 'iwak e nyebur sumur tandas', '        asdasdasd      asd', 'kandang-ternak-kenari-siste5.jpg', 'Draft', 'Slider', '2019-03-25 12:41:46');
+(1, 4, 'iwak-e-nyebur-sumur-tandas', 'iwak e nyebur sumur tandas', '<p>asdasdasd asd</p>', 'kandang-ternak-kenari-siste5.jpg', 'Publish', 'Berita', '2019-03-25 13:24:14'),
+(4, 4, 'hard-work', 'Hard Work', '<p>Hard work is but one of the ways you can achieve your goals. For those of us who aren&rsquo;t inordinately&nbsp;<a href=\"https://www.primermagazine.com/2011/learn/the-only-4-reasons-why-your-peers-are-more-successful-than-you\">wealthy, smart, or lucky</a>, it&rsquo;s the only way. While each person&rsquo;s path to success will be unique, the anatomy of the hard work that they do often looks very similar.</p>', 'b1.jpg', 'Publish', 'Slide', '2019-03-25 13:31:57'),
+(5, 4, 'study', 'Study', '<p><span class=\"ind\">The devotion of time and attention to gaining knowledge of an academic subject, especially by means of books.</span></p>', 'b2.jpg', 'Publish', 'Slide', '2019-03-25 13:30:29'),
+(6, 4, 'class', 'Class', '<p>Learning is the process of acquiring new, or modifying existing, <span style=\"text-decoration: underline;\"><a title=\"Knowledge\" href=\"https://en.wikipedia.org/wiki/Knowledge\">knowledge</a></span>, <span style=\"text-decoration: underline;\"><a title=\"Behavior\" href=\"https://en.wikipedia.org/wiki/Behavior\">behaviors</a>, </span><a title=\"Skill\" href=\"https://en.wikipedia.org/wiki/Skill\">skills</a>, <a class=\"mw-redirect\" title=\"Value (personal and cultural)\" href=\"https://en.wikipedia.org/wiki/Value_(personal_and_cultural)\">values</a>, or <a title=\"Preference\" href=\"https://en.wikipedia.org/wiki/Preference\">preferences</a>.<sup id=\"cite_ref-1\" class=\"reference\"></sup></p>', 'b3.jpg', 'Publish', 'Slide', '2019-03-25 13:34:21'),
+(7, 4, 'sayur-kol', 'Sayur Kol', '<p>Makan daging teman dengan sayur kol</p>', 'Sabyan_Gambus_Nissa_Sabyan_1548167665.jpeg', 'Publish', 'Berita', '2019-03-25 16:41:34');
 
 -- --------------------------------------------------------
 
@@ -130,7 +134,13 @@ CREATE TABLE `buku` (
 
 INSERT INTO `buku` (`id_buku`, `id_user`, `id_jenis`, `id_bahasa`, `judul_buku`, `penulis_buku`, `subjek_buku`, `letak_buku`, `kode_buku`, `kolasi`, `penerbit`, `tahun_terbit`, `no_seri`, `status_buku`, `ringkasan`, `cover_buku`, `jumlah_buku`, `tanggal_entri`, `tanggal`) VALUES
 (5, 4, 3, 1, 'Ilmu Pengetahuan Sosial', 'Nur Wahyu Rochmadi', '', '', '', 0, '', NULL, '', 'Publish', '  ', 'ips.jpg', 0, '2019-03-22 20:14:19', '2019-03-22 19:14:19'),
-(6, 4, 3, 1, 'Dasar Kewirausahaan', 'Ir. Hendro', '', '', '', 0, '', 0000, '', 'Publish', '  ', '20170212035154.jpg', 0, '2019-03-23 14:33:09', '2019-03-23 13:33:09');
+(6, 4, 3, 1, 'Dasar Kewirausahaan', 'Ir. Hendro', '', '', '', 0, '', 0000, '', 'Publish', '  ', '20170212035154.jpg', 0, '2019-03-23 14:33:09', '2019-03-23 13:33:09'),
+(7, 4, 3, 1, 'PHP Modul', 'Teguh Wahyono', '', '', '', 0, '', 0000, '', 'Publish', '  ', '20170212145310.jpg', 0, '2019-03-25 18:10:31', '2019-03-25 17:10:31'),
+(8, 4, 3, 1, 'Pengantar Teknologi Informasi', 'Eddy Sutanta', '', '', '', 0, '', 0000, '', 'Publish', '  ', '20170209044244.jpg', 0, '2019-03-25 18:11:29', '2019-03-25 17:11:29'),
+(9, 4, 3, 1, 'Kamus Istilah Internet', 'wang cun', '', '', '', 0, '', 0000, '', 'Publish', '  ', '20170212080423.jpg', 0, '2019-03-25 18:12:13', '2019-03-25 17:12:13'),
+(10, 4, 3, 1, 'Kamus Matematika', 'ario', '', '', '', 0, '', 0000, '', 'Publish', '  ', '20170207102926.jpg', 0, '2019-03-25 18:12:56', '2019-03-25 17:12:56'),
+(11, 4, 3, 1, 'E-Learning', 'mario', '', '', '', 0, '', 0000, '', 'Publish', '  ', '20170209050821.jpg', 0, '2019-03-25 18:13:39', '2019-03-25 17:13:39'),
+(12, 4, 3, 1, 'Algoritma C++', 'niawarti', '', '', '', 0, '', 0000, '', 'Publish', '  ', '20170209045014.jpg', 0, '2019-03-25 18:14:22', '2019-03-25 17:14:22');
 
 -- --------------------------------------------------------
 
@@ -318,12 +328,12 @@ ALTER TABLE `bahasa`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `file`
 --
