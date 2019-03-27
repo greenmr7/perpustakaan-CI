@@ -48,8 +48,7 @@ class Berita_model extends CI_Model {
 	public function read($slug_berita) {
 		$this->db->select('*');
 		$this->db->from('berita');
-		$this->db->where(array(	'jenis_berita'  => 'Berita',
-														'slug_berita' 	=> $slug_berita,
+		$this->db->where(array(	'slug_berita' 	=> $slug_berita,
 														'status_berita' => 'Publish'
 													));
 		$this->db->order_by('id_berita','DESC');
