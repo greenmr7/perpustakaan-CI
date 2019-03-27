@@ -31,4 +31,19 @@ class Berita extends CI_Controller {
 
     $this->load->view('layout/file',$data,FALSE);
 	}
+
+  public function read($slug_berita)
+	{
+		$berita_lain = $this->berita_model->berita_lain();
+    $berita = $this->berita_model->read($slug_berita);
+
+    $data = array('title'  => $berita->judul_berita,//.' | '.$site['namaweb']
+									'berita' => $berita,
+                  'berita_lain'  => $berita_lain,
+									'judul'  => 'Detail News',
+                  'isi'    => 'berita/read'
+								);
+
+    $this->load->view('layout/file',$data,FALSE);
+	}
 }

@@ -31,7 +31,7 @@ class Berita_model extends CI_Model {
     return $query->result();
   }
 
-	//Slider
+	//berita
   public function berita() {
     $this->db->select('*');
     $this->db->from('berita');
@@ -40,6 +40,31 @@ class Berita_model extends CI_Model {
 													));
     $this->db->order_by('id_berita','DESC');
 		$this->db->limit(6);
+    $query = $this->db->get();
+    return $query->result();
+  }
+
+	//read berita
+	public function read($slug_berita) {
+		$this->db->select('*');
+		$this->db->from('berita');
+		$this->db->where(array(	'jenis_berita'  => 'Berita',
+														'slug_berita' 	=> $slug_berita,
+														'status_berita' => 'Publish'
+													));
+		$this->db->order_by('id_berita','DESC');
+		$query = $this->db->get();
+		return $query->row();
+	}
+
+	//berita lain
+  public function berita_lain() {
+    $this->db->select('*');
+    $this->db->from('berita');
+		$this->db->where(array(	'status_berita' => 'Publish'
+													));
+    $this->db->order_by('id_berita','DESC');
+		$this->db->limit(10);
     $query = $this->db->get();
     return $query->result();
   }
