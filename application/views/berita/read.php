@@ -5,7 +5,7 @@
           <div style="background-image: url(<?php echo base_url()?>assets/front/images/b2.jpg);">
             <div class="container">
               <div class="slider-info text-left">
-                <div class="text-center" style="padding-bottom:100px; ">
+                <div class="text-center" style="padding-bottom:100px; margin-top:-100px; margin-bottom: 1px;">
                   <h5 style=" color: white;" >News</h5>
                   <h4>
                     <a href="<?php echo base_url() ?>">Home</a>
@@ -29,7 +29,7 @@
             <div class="tab4">
               <div class="row mt-lg-4 mt-3">
                 <div class="col-md-5 about-txt-img">
-                  <img src="<?php echo base_url() ?>assets/front/images/ab1.jpg" class="img-thumbnail" alt="">
+                  <img src="<?php echo base_url('assets/upload/buku/'.$berita->gambar)?>" class="img-thumbnail" alt="">
                 </div>
                 <div class="col-md-7 latest-list">
                   <div class="about-jewel-agile-left">

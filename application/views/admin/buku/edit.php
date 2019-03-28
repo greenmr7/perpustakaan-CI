@@ -90,7 +90,7 @@ echo form_open_multipart(base_url('admin/buku/edit/'.$buku->id_buku));
   	</div>
     <div class="form-group form-group-lg">
       <label>Ringkasan</label>
-      <textarea name="ringkasan" class="form-control" placeholder="Ringkasan"> <?php echo $buku->ringkasan ?> </textarea>
+      <textarea name="ringkasan" class="form-control" placeholder="Ringkasan"><?php echo $buku->ringkasan ?></textarea>
     </div>
 </div>
 

@@ -5,7 +5,7 @@
           <div style="background-image: url(<?php echo base_url()?>assets/front/images/b2.jpg);">
             <div class="container">
               <div class="slider-info text-left">
-                <div class="text-center" style="padding-bottom:100px; ">
+                <div class="text-center" style="padding-bottom:100px; margin-top:-100px; margin-bottom: 1px;">
                   <h5 style=" color: white;" >News</h5>
                   <h4>
                     <a href="<?php echo base_url() ?>">Home</a>
