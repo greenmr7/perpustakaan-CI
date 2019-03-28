@@ -68,11 +68,13 @@ class Katalog extends CI_Controller {
 	{
     // $keywords = str_replace(' ','-',strip_tags($keywords));
     $buku	= $this->buku_model->read($id_buku);
+    $file_buku	= $this->buku_model->buku($id_buku);
 
     $data = array('title'  			=> $buku->judul_buku,//$site['namaweb'].' | '.$site['tagline']
 									// 'produk'			=> $produk,
 									// 'new'					=> $new,
                   'buku'  		  => $buku,
+                  'file_buku'  		  => $file_buku,
                   // 'keywords'  	=> $keywords,
 									// 'berita'  		=> $berita,
 									// 'slide'  			=> $slide,
