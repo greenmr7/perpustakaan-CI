@@ -204,7 +204,7 @@
                 </div> -->
               </div>
               <div class="team-w3layouts-info py-lg-4 py-3 text-center" data-blast="bgColor">
-                <h4 class="text-white mb-2"> <a href="<?php echo base_url('katalog/read/'.$buku->id_buku) ?>"><?php echo $buku->judul_buku ?></a> </h4>
+                <h4 class="text-white mb-2"> <a href="<?php echo base_url('katalog/detail/'.$buku->id_buku) ?>"><?php echo $buku->judul_buku ?></a> </h4>
                 <span class="wls-client-title text-black"><?php echo $buku->penulis_buku ?></span>
               </div>
             </div>
